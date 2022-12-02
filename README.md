@@ -618,3 +618,12 @@ Please read also Authorization with Firebird 2.5 client library from Firebird 4 
 [npm-url]: https://npmjs.org/package/node-firebird
 [npm-version-image]: http://img.shields.io/npm/v/node-firebird.svg?style=flat
 [npm-downloads-image]: http://img.shields.io/npm/dm/node-firebird.svg?style=flat
+
+
+## Change default encoding
+
+```js
+import Firebird, { setDefaultEncoding } from 'node-firebird';
+
+setDefaultEncoding('latin1');
+```
