@@ -113,6 +113,8 @@ declare module 'node-firebird' {
     export function pool(max: number, options: Options): ConnectionPool;
     export function drop(options: Options, callback: SimpleCallback): void;
 
+    export function setDefaultEncoding(encoding: SupportedCharacterSet): void;
+
     interface ReadableOptions {
         optread?: 'byline' | 'buffer'; // default 'byline'
         buffersize?: number; // default 'byline': 2048, 'buffer': 8192
