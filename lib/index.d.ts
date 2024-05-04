@@ -41,6 +41,12 @@ declare module 'node-firebird' {
         escape(value: any): string;
     }
 
+    export interface Connection {
+        db: Database;
+        disconnect: () => void;
+        detach: () => void;
+    }
+
     export interface Transaction {
         query(query: string, params: any[], callback: QueryCallback): void;
         execute(query: string, params: any[], callback: QueryCallback): void;
@@ -105,8 +111,8 @@ declare module 'node-firebird' {
         destroy(callback?: SimpleCallback): void;
     }
 
-    export function attach(options: Options, callback: DatabaseCallback): void;
-    export function attach(options: SvcMgrOptions, callback: ServiceManagerCallback): void;
+    export function attach(options: Options, callback: DatabaseCallback): Connection;
+    export function attach(options: SvcMgrOptions, callback: ServiceManagerCallback): Connection;
     export function escape(value: any, protocolVersion?: number /*PROTOCOL_VERSION13*/): string;
     export function create(options: Options, callback: DatabaseCallback): void;
     export function attachOrCreate(options: Options, callback: DatabaseCallback): void;
